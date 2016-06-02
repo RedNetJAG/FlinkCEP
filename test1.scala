@@ -55,3 +55,24 @@ object jsontest {
     val typeId: Option[Int] = myJsonInstance.DigitalInputs.flatMap(_.headOption.flatMap(_.TypeId)) // Some(145)
 }
 }
+
+
+Error:(22, 49) No unapply or unapplySeq function found
+    implicit val digitalInputsReads = Json.reads[DigitalInputs]
+                                                ^
+Error:(23, 46) No unapply or unapplySeq function found
+    implicit val coordinateReads = Json.reads[Coordinate]
+                                             ^
+Error:(24, 44) No unapply or unapplySeq function found
+    implicit val locationReads = Json.reads[Location]
+                                           ^
+Error:(25, 42) No unapply or unapplySeq function found
+    implicit val myJsonReads = Json.reads[MyJson]
+                                         ^
+Error:(53, 46) No Json deserializer found for type MyJson. Try to implement an implicit Reads or Format for this type.
+    val myJsonInstance: MyJson = inputJson.as[MyJson]
+                                             ^
+Error:(53, 46) not enough arguments for method as: (implicit fjs: play.api.libs.json.Reads[MyJson])MyJson.
+Unspecified value parameter fjs.
+    val myJsonInstance: MyJson = inputJson.as[MyJson]
+                                             ^
